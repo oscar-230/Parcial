@@ -1,8 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Oscar David Cuaical Lopez
+ * Grupo: 01
+ * Profesor: Luis Yovany Romo Portilla
+ * Fecha: 22/06/2023
  */
+
 package Model;
 
 import java.util.ArrayList;
@@ -10,10 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author ASUS
- */
+
 public class DatosPaciente {
     private Map<Integer, Paciente> pacientes;
     private List<Alergias> alergias;
