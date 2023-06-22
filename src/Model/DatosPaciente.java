@@ -47,7 +47,9 @@ public class DatosPaciente {
         Alergias alergia5 = new Alergias("Lluvia");
         agregarAlergia(alergia5);
     }
-
+    public List<Alergias> obtenerTodasLasAlergias() {
+    return alergias;
+    }
     // Métodos para operaciones CRUD (crear, leer, actualizar, eliminar)
 
     public Paciente buscarPaciente(int identificacion) {

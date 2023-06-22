@@ -7,14 +7,35 @@
 
 package View;
 
+import Model.Alergias;
+import Model.DatosPaciente;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class PacienteView extends javax.swing.JFrame {
 
+ 
+
+    private DatosPaciente datosPaciente;
+    private DefaultComboBoxModel<String> comboBoxModel;
     
-    public PacienteView() {
+    
+    public PacienteView(DatosPaciente model) {
+        
         initComponents();
+        datosPaciente = new DatosPaciente(); // Instanciar el objeto DatosPaciente
+        comboBoxModel = new DefaultComboBoxModel<>(); // Crear el modelo para el ComboBox
+        alergiasbox.setModel(comboBoxModel); // Establecer el modelo en el ComboBox
+
+        // Cargar las alergias iniciales en el ComboBox
+        List<Alergias> todasLasAlergias = datosPaciente.obtenerTodasLasAlergias();
+        for (Alergias alergia : todasLasAlergias) {
+            comboBoxModel.addElement(alergia.getNombre());
+        }
     }
 
     
@@ -38,7 +59,7 @@ public class PacienteView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         alergiasbox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        alergiasTextArea = new javax.swing.JTextArea();
         buscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         actualizar = new javax.swing.JButton();
@@ -75,16 +96,16 @@ public class PacienteView extends javax.swing.JFrame {
             }
         });
 
-        alergiasbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        alergiasbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         alergiasbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 alergiasboxActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        alergiasTextArea.setColumns(20);
+        alergiasTextArea.setRows(5);
+        jScrollPane1.setViewportView(alergiasTextArea);
 
         buscar.setText("Buscar");
         buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -257,10 +278,14 @@ public class PacienteView extends javax.swing.JFrame {
     private void grabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grabarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_grabarActionPerformed
-
+    
+   
     private void alergiasboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alergiasboxActionPerformed
-        // TODO add your handling code here:
-        
+        String alergiaSeleccionada = alergiasbox.getSelectedItem().toString();
+
+        if (comboBoxModel.getIndexOf(alergiaSeleccionada) == -1) {
+        comboBoxModel.addElement(alergiaSeleccionada);
+}
     }//GEN-LAST:event_alergiasboxActionPerformed
 
     
@@ -291,13 +316,14 @@ public class PacienteView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PacienteView().setVisible(true);
+                new PacienteView(new DatosPaciente()).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizar;
+    private javax.swing.JTextArea alergiasTextArea;
     private javax.swing.JComboBox<String> alergiasbox;
     private javax.swing.JTextField apellidostext;
     private javax.swing.JButton buscar;
@@ -316,7 +342,6 @@ public class PacienteView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField nombrestext;
     private javax.swing.JTextField telefonotext;

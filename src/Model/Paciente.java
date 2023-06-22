@@ -6,6 +6,7 @@
  */
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,7 +24,10 @@ public class Paciente {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.alergias = alergias;
+        this.alergias = new ArrayList<>();
+        if (alergias != null) {
+            this.alergias.addAll(alergias);
+        }
     }
 
     public int getIdentificacion() {
