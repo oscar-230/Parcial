@@ -7,6 +7,8 @@
 
 package View;
 
+import java.util.List;
+
 
 public class PacienteView extends javax.swing.JFrame {
 
@@ -74,6 +76,11 @@ public class PacienteView extends javax.swing.JFrame {
         });
 
         alergiasbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        alergiasbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alergiasboxActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -89,8 +96,18 @@ public class PacienteView extends javax.swing.JFrame {
         jLabel7.setText("--------[CONTROLES]-------");
 
         actualizar.setText("Actualizar");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarActionPerformed(evt);
+            }
+        });
 
         grabar.setText("Grabar");
+        grabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grabarActionPerformed(evt);
+            }
+        });
 
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +249,19 @@ public class PacienteView extends javax.swing.JFrame {
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actualizarActionPerformed
+
+    private void grabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grabarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grabarActionPerformed
+
+    private void alergiasboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alergiasboxActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_alergiasboxActionPerformed
 
     
     public static void main(String args[]) {
