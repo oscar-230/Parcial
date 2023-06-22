@@ -8,16 +8,16 @@
 package Controller;
 
 import Model.Alergias;
-import Model.DatosPaciente;
+import DAO.DatosPacienteDAO;
 import Model.Paciente;
 import java.util.List;
 
 
 public class PacienteController {
-    private DatosPaciente model;
+    private DatosPacienteDAO model;
 
-    public PacienteController(DatosPaciente model) {
-        this.model = model;
+    public PacienteController(DatosPacienteDAO DAO) {
+        
     }
 
     public Paciente buscarPaciente(int identificacion) {

@@ -5,19 +5,21 @@
  * Fecha: 22/06/2023
  */
 
-package Model;
+package DAO;
 
+import Model.Alergias;
+import Model.Paciente;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
-public class DatosPaciente {
+public class DatosPacienteDAO {
     private Map<Integer, Paciente> pacientes;
     private List<Alergias> alergias;
 
-    public DatosPaciente() {
+    public DatosPacienteDAO() {
         pacientes = new HashMap<>();
         alergias = new ArrayList<>();
     
@@ -64,10 +66,6 @@ public class DatosPaciente {
         pacientes.put(paciente.getIdentificacion(), paciente);
     }
 
-    public void eliminarPaciente(int identificacion) {
-        pacientes.remove(identificacion);
-    }
-
     public List<Alergias> obtenerAlergias() {
         return alergias;
     }
@@ -75,4 +73,5 @@ public class DatosPaciente {
     public void agregarAlergia(Alergias alergia) {
         alergias.add(alergia);
     }
+   
 }

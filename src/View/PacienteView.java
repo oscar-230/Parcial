@@ -8,7 +8,7 @@
 package View;
 
 import Model.Alergias;
-import Model.DatosPaciente;
+import DAO.DatosPacienteDAO;
 import Model.Paciente;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +20,14 @@ public class PacienteView extends javax.swing.JFrame {
 
  
 
-    private DatosPaciente datosPaciente;
+    private DatosPacienteDAO datosPaciente;
     private DefaultComboBoxModel<String> comboBoxModel;
     
     
-    public PacienteView(DatosPaciente model) {
+    public PacienteView(DatosPacienteDAO DAO) {
         
         initComponents();
-        datosPaciente = new DatosPaciente(); // Instanciar el objeto DatosPaciente
+        datosPaciente = new DatosPacienteDAO(); // Instanciar el objeto DatosPaciente
         comboBoxModel = new DefaultComboBoxModel<>(); // Crear el modelo para el ComboBox
         alergiasbox.setModel(comboBoxModel); // Establecer el modelo en el ComboBox
 
@@ -378,7 +378,7 @@ public class PacienteView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PacienteView(new DatosPaciente()).setVisible(true);
+                new PacienteView(new DatosPacienteDAO()).setVisible(true);
             }
         });
     }

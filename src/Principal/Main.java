@@ -4,15 +4,16 @@
  * Profesor: Luis Yovany Romo Portilla
  * Fecha: 22/06/2023
  */
-package parcial;
+package Principal;
 
 
 
 
-public class Principal {
+public class Main {
 
     
     public static void main(String[] args) {
+        
         
 
     }
