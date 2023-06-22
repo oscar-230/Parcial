@@ -1,3 +1,11 @@
+/*
+ * Oscar David Cuaical Lopez
+ * Grupo: 01
+ * Profesor: Luis Yovany Romo Portilla
+ * Fecha: 22/06/2023
+ * Parcial final 
+ */
+
 package Archivos;
 
 import DAO.DatosPacienteDAO;
