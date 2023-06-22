@@ -10,6 +10,7 @@ package View;
 import Model.Alergias;
 import Model.DatosPaciente;
 import Model.Paciente;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -285,15 +286,52 @@ public class PacienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
-        // TODO add your handling code here:
+        // Obtener los datos ingresados en los campos de texto
+        int identificacion = Integer.parseInt(identificaciontext.getText());
+        String apellidos = apellidostext.getText();
+        String nombre = nombrestext.getText();
+        String direccion = direcciontext.getText();
+        int telefono = Integer.parseInt(telefonotext.getText());
+
+        // Verificar si el paciente existe
+        Paciente paciente = datosPaciente.buscarPaciente(identificacion);
+
+        if (paciente != null) {
+            // Actualizar los datos del paciente
+            paciente.setApellidos(apellidos);
+            paciente.setNombre(nombre);
+            paciente.setDireccion(direccion);
+            paciente.setTelefono(telefono);
+
+            // Mostrar un mensaje indicando que la información se ha actualizado correctamente
+            JOptionPane.showMessageDialog(this, "La información del paciente ha sido actualizada correctamente");
+        } else {
+            // Mostrar un mensaje indicando que el paciente no está registrado
+            JOptionPane.showMessageDialog(this, "El paciente no está registrado");
+        }
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void grabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grabarActionPerformed
-        // TODO add your handling code here:
+         // Obtener los datos ingresados en los campos de texto
+        int identificacion = Integer.parseInt(identificaciontext.getText());
+        String apellidos = apellidostext.getText();
+        String nombre = nombrestext.getText();
+        String direccion = direcciontext.getText();
+        int telefono = Integer.parseInt(telefonotext.getText());
+
+        // Crear un nuevo objeto Paciente con los datos ingresados
+        Paciente paciente = new Paciente(identificacion, apellidos, nombre, direccion, telefono, new ArrayList<>());
+
+        // Agregar el paciente al objeto DatosPaciente
+        datosPaciente.agregarPaciente(paciente);
+
+        // Mostrar un mensaje indicando que el paciente se ha agregado correctamente
+        JOptionPane.showMessageDialog(this, "El paciente ha sido agregado correctamente");
+
     }//GEN-LAST:event_grabarActionPerformed
     
    
