@@ -1,0 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ *
+ * @author ASUS
+ */
+public class DatosPaciente {
+    private Map<Integer, Paciente> pacientes;
+    private List<Alergias> alergias;
+
+    public DatosPaciente() {
+        pacientes = new HashMap<>();
+        alergias = new ArrayList<>();
+    }
+
+    // Métodos para operaciones CRUD (crear, leer, actualizar, eliminar)
+
+    public Paciente buscarPaciente(int identificacion) {
+        return pacientes.get(identificacion);
+    }
+
+    public void agregarPaciente(Paciente paciente) {
+        pacientes.put(paciente.getIdentificacion(), paciente);
+    }
+
+    public void actualizarPaciente(Paciente paciente) {
+        pacientes.put(paciente.getIdentificacion(), paciente);
+    }
+
+    public void eliminarPaciente(int identificacion) {
+        pacientes.remove(identificacion);
+    }
+
+    public List<Alergias> obtenerAlergias() {
+        return alergias;
+    }
+
+    public void agregarAlergia(Alergias alergia) {
+        alergias.add(alergia);
+    }
+}
