@@ -56,7 +56,7 @@ public class PacienteView extends javax.swing.JFrame {
         nombrestext = new javax.swing.JTextField();
         direcciontext = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        agregar = new javax.swing.JButton();
         alergiasbox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         alergiasTextArea = new javax.swing.JTextArea();
@@ -91,10 +91,10 @@ public class PacienteView extends javax.swing.JFrame {
 
         jLabel6.setText("---------[ALERGIAS]--------");
 
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        agregar.setText("Agregar");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                agregarActionPerformed(evt);
             }
         });
 
@@ -184,7 +184,7 @@ public class PacienteView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(agregar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(alergiasbox, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -228,7 +228,7 @@ public class PacienteView extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(agregar)
                             .addComponent(alergiasbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,9 +262,16 @@ public class PacienteView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_identificaciontextActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        
+        String alergiaSeleccionada = (String) alergiasbox.getSelectedItem();
+
+        // Actualizar el contenido del TextArea
+        String alergiasActuales = alergiasTextArea.getText();
+        alergiasActuales += alergiaSeleccionada + "\n";
+        alergiasTextArea.setText(alergiasActuales);
+    
+    }//GEN-LAST:event_agregarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         // Obtener la identificación ingresada por el usuario
@@ -378,6 +385,7 @@ public class PacienteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizar;
+    private javax.swing.JButton agregar;
     private javax.swing.JTextArea alergiasTextArea;
     private javax.swing.JComboBox<String> alergiasbox;
     private javax.swing.JTextField apellidostext;
@@ -386,7 +394,6 @@ public class PacienteView extends javax.swing.JFrame {
     private javax.swing.JTextField direcciontext;
     private javax.swing.JButton grabar;
     private javax.swing.JTextField identificaciontext;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
