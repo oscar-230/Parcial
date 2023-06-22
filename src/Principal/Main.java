@@ -6,6 +6,9 @@
  */
 package Principal;
 
+import DAO.DatosPacienteDAO;
+import View.PacienteView;
+
 
 
 
@@ -14,7 +17,10 @@ public class Main {
     
     public static void main(String[] args) {
         
-        
+        PacienteView pacienteView = new PacienteView(new DatosPacienteDAO());
+
+        // Hacer visible la vista
+        pacienteView.setVisible(true);
 
     }
     
