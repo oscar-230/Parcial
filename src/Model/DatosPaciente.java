@@ -22,13 +22,13 @@ public class DatosPaciente {
         alergias = new ArrayList<>();
     
     // Agregar pacientes de ejemplo
-        Paciente paciente1 = new Paciente(1234, "Apellidos1", "Nombre1", "Dirección1", 98765432,null);
-        paciente1.agregarAlergia("Alergia1");
-        paciente1.agregarAlergia("Alergia2");
+        Paciente paciente1 = new Paciente(1234, "Cuaical", "Oscar", "Melendez", 98765432,null);
+        paciente1.agregarAlergia("Moho");
+        paciente1.agregarAlergia("Alimentos");
         agregarPaciente(paciente1);
 
-        Paciente paciente2 = new Paciente(5678, "Apellidos2", "Nombre2", "Dirección2", 98765433,null);
-        paciente2.agregarAlergia("Alergia3");
+        Paciente paciente2 = new Paciente(5678, "Lopez", "David", "Cali", 98765433,null);
+        paciente2.agregarAlergia("Lluvia");
         agregarPaciente(paciente2);
 
         // Agregar alergias base

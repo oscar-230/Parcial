@@ -9,11 +9,10 @@ package View;
 
 import Model.Alergias;
 import Model.DatosPaciente;
-import java.util.ArrayList;
-import java.util.HashSet;
+import Model.Paciente;
 import java.util.List;
-import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 
 public class PacienteView extends javax.swing.JFrame {
@@ -70,6 +69,8 @@ public class PacienteView extends javax.swing.JFrame {
         jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusable(false);
+        setResizable(false);
 
         jLabel1.setText("Identificacion: ");
 
@@ -103,6 +104,7 @@ public class PacienteView extends javax.swing.JFrame {
             }
         });
 
+        alergiasTextArea.setEditable(false);
         alergiasTextArea.setColumns(20);
         alergiasTextArea.setRows(5);
         jScrollPane1.setViewportView(alergiasTextArea);
@@ -264,7 +266,22 @@ public class PacienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        // TODO add your handling code here:
+        // Obtener la identificación ingresada por el usuario
+        int identificacion = Integer.parseInt(identificaciontext.getText());
+
+        // Buscar el paciente en el objeto DatosPaciente
+        Paciente paciente = datosPaciente.buscarPaciente(identificacion);
+
+        if (paciente != null) {
+            // Si el paciente se encuentra registrado, completar los campos correspondientes
+            apellidostext.setText(paciente.getApellidos());
+            nombrestext.setText(paciente.getNombre());
+            direcciontext.setText(paciente.getDireccion());
+            telefonotext.setText(String.valueOf(paciente.getTelefono()));
+        } else {
+            // Si el paciente no se encuentra registrado, mostrar un mensaje de error
+            JOptionPane.showMessageDialog(this, "El usuario no está registrado", "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_buscarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
