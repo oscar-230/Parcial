@@ -348,7 +348,7 @@ public class PacienteView extends javax.swing.JFrame {
 
         if (comboBoxModel.getIndexOf(alergiaSeleccionada) == -1) {
         comboBoxModel.addElement(alergiaSeleccionada);
-}
+        }
     }//GEN-LAST:event_alergiasboxActionPerformed
 
     

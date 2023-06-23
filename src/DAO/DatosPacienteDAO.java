@@ -3,6 +3,7 @@
  * Grupo: 01
  * Profesor: Luis Yovany Romo Portilla
  * Fecha: 22/06/2023
+ * Parcial final
  */
 
 package DAO;
@@ -25,14 +26,14 @@ public class DatosPacienteDAO {
     
     // Agregar pacientes de ejemplo
         Paciente paciente1 = new Paciente(1234, "Cuaical", "Oscar", "Melendez", 98765432,null);
-        paciente1.agregarAlergia("Moho");
-        paciente1.agregarAlergia("Alimentos");
         agregarPaciente(paciente1);
 
         Paciente paciente2 = new Paciente(5678, "Lopez", "David", "Cali", 98765433,null);
-        paciente2.agregarAlergia("Lluvia");
         agregarPaciente(paciente2);
-
+        
+        Paciente paciente3 = new Paciente(10008, "Acosta", "Diego Camilo", "Ciudad Jardon", 31581425, null);
+        agregarPaciente(paciente3);
+        
         // Agregar alergias base
         Alergias alergia1 = new Alergias("Moho");
         agregarAlergia(alergia1);
@@ -48,6 +49,13 @@ public class DatosPacienteDAO {
 
         Alergias alergia5 = new Alergias("Lluvia");
         agregarAlergia(alergia5);
+        
+        Alergias alergia6 = new Alergias("Polen");
+        agregarAlergia(alergia6);
+        
+        Alergias alergia7 = new Alergias("Lactosa");
+        agregarAlergia(alergia7);
+        
     }
     public List<Alergias> obtenerTodasLasAlergias() {
     return alergias;
